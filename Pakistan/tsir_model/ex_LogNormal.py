@@ -1,4 +1,4 @@
-""" Extrapolated version of the log normal script before. Extrapolated as in
+""" Extrapolated version of the log normal script. Extrapolated as in
 we let the model continue past where there's data."""
 import sys
 sys.path.insert(0,"..\\..\\")

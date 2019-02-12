@@ -1,6 +1,5 @@
 """ Log Normal noise model for transmission, applied to different
-subsets of the Pakistan data. The model is fit at the national level, just to show
-what upsampling looks like, etc."""
+subsets of the Pakistan data. The model is fit at the national level. """
 
 ## Put the path to the riskmap lib
 ## in the system path
@@ -72,8 +71,6 @@ if __name__ == "__main__":
 	sia = pd.read_pickle(pickle_jar+"extrapolated_sia_nofuture.pkl").rename("sia")
 	mcv2 = pd.read_pickle(pickle_jar+"extrapolated_mcv2.pkl").rename("mcv2")
 
-	print(sia.loc[sia != 0.])
-
 	## For later comparison
 	updated_2017 = pd.read_pickle(pickle_jar+"updated_smoothed_cases.pkl")
 	updated_cases = updated_2017.groupby("time").sum()
@@ -136,8 +133,7 @@ if __name__ == "__main__":
 	## Allocate space based on the number of sample trajectories
 	## we want.
 	std_logE = nat_model.std_logE
-	print(std_logE)
-	num_samples = 1000
+	num_samples = 10000
 	full_samples = np.zeros((num_samples,nat_model.n_steps))
 	full_samples_S = np.zeros((num_samples,nat_model.n_steps))
 	one_step_samples = np.zeros((num_samples,nat_model.n_steps))
@@ -152,9 +148,7 @@ if __name__ == "__main__":
 	for i in range(1,len(nat_model.cases)):
 		
 		## Time of year for seasonality
-		time_in_period = (i % nat_model.periodicity)#-1
-		#if time_in_period < 0:
-		#	time_in_period = nat_model.periodicity-1
+		time_in_period = (i % nat_model.periodicity)
 
 		## Update one step ahead and full projection lambdas
 		lam = nat_model.t_beta[time_in_period]*(full_samples_S[:,i-1])*(full_samples[:,i-1]**nat_model.alpha)

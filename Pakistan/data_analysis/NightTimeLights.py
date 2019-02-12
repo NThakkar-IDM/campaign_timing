@@ -3,7 +3,7 @@
 Scripts and processing to create monthly night time lights timeseries using rasters from 
 https://ngdc.noaa.gov/eog/viirs/download_dnb_composites.html
 
-This is to quanitify population fluctuations in major cities (Karachi, Lahore, etc). """
+This is to quanitify population fluctuations in major cities (Karachi, Lahore). """
 import sys
 sys.path.insert(0, "..\\..\\")
 

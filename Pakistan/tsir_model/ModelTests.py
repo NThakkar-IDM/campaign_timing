@@ -259,11 +259,4 @@ if __name__ == "__main__":
 	axes[1].ticklabel_format(axis="y",style="sci",scilimits=(0,1))
 	plt.tight_layout()
 	plt.savefig("..\\_plots\\out_of_sample.pdf")
-
-
-	## Print some metrics
-	print(r2_score(I_inferred,os_mid[:N]))
-	print(r2_score(full_I_inferred.values[N:],os_mid[N:]))
-
-
 	plt.show()
