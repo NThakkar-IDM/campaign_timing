@@ -1,5 +1,5 @@
 # campaign_timing
-A time series model for forecasting measles vaccine campaign impact
+A time series model for forecasting measles vaccination campaign impact.
 
 This is a repository with Python code pertaining to the paper *Decreasing measles burden by optimizing campaign timing* by Niket Thakkar, Syed Saqlain Ahmad Gilani, Quamrul Hasan and Kevin McCarthy, 2019.
 
